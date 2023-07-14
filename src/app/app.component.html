@@ -1,23 +1,19 @@
 
-<mat-sidenav-container>
-  <router-outlet></router-outlet>
+<mat-sidenav-container  style="height: 100%;" (mousewheel)="onMouseWheel($event)">
+  <router-outlet ></router-outlet>
   <mat-sidenav opened="true" mode="side">
       <mat-nav-list style="padding: 0;">
         <div style="height: 2vh"></div>
-          <a mat-list-item><mat-icon>home</mat-icon></a>
-          <div style="height: 20vh">
+          <a mat-list-item buttonSelected routerLink="home"><mat-icon>home</mat-icon></a>
+          <div style="height: 18vh">
           </div>
-          <a mat-list-item><mat-icon>person</mat-icon></a>
-          <a mat-list-item><mat-icon>school</mat-icon></a>
-          <a mat-list-item><mat-icon>work</mat-icon></a>
-          <a mat-list-item><mat-icon>edit_square</mat-icon></a>
-          <a mat-list-item><mat-icon>info</mat-icon></a>
-
+          <a mat-list-item buttonSelected routerLink="about_me"><mat-icon>person</mat-icon></a>
+          <a mat-list-item buttonSelected routerLink="curriculum"><mat-icon>school</mat-icon></a>
+          <a mat-list-item buttonSelected routerLink="projects"><mat-icon>work</mat-icon></a>
+          <a mat-list-item buttonSelected routerLink="form"><mat-icon>edit_square</mat-icon></a>
+          <a mat-list-item buttonSelected routerLink="info"><mat-icon>info</mat-icon></a>
           
       </mat-nav-list>
   </mat-sidenav>
-  <div style="height:100vh;">
-      
-  </div>
 </mat-sidenav-container>
   

@@ -14,6 +14,9 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { CurruculumComponent } from './curruculum/curruculum.component';
 import { ProjectComponent } from './project/project.component';
 import { InfoComponent } from './info/info.component';
+import { FormComponent } from './form/form.component';
+import { ScrollDirective } from './hover.directive';
+import { SelectedDirective } from './selected.directive';
 
 
 @NgModule({
@@ -24,6 +27,9 @@ import { InfoComponent } from './info/info.component';
     CurruculumComponent,
     ProjectComponent,
     InfoComponent,
+    FormComponent,
+    ScrollDirective,
+    SelectedDirective,
   ],
   imports: [
     BrowserModule,
