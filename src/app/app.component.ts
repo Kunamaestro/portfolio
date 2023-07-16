@@ -1,5 +1,7 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import {  NavigationEnd, NavigationStart, Router} from '@angular/router';
+import { FormService } from './form.service';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +10,18 @@ import {  NavigationEnd, NavigationStart, Router} from '@angular/router';
  
 })
 export class AppComponent {
-
+  @ViewChild('contentWrapper') contentWrapper!: ElementRef;
   
   pageTab:String[]=["home","about_me","form","projects","info"]
   /// Pour les flèches dynamiques
   shouldAnimateTop : boolean = false
   shouldAnimateBottom : boolean = false
+  isVerticalScrollbarVisible = false;
   delay_arrow_seconds : number = 1
   /////////////
   scroll : number = 0
-  constructor(private router: Router,) { }
+  constructor(private router: Router,
+      private form:FormService) { }
   ngOnInit() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
@@ -41,7 +45,11 @@ export class AppComponent {
       this.scroll+=event.deltaY
       if(url != this.pageTab[this.pageTab.length-1] && this.scroll>=nb_wheel_mouse*100){
         this.scroll=0
-        this.navigateAfterOrNot(url,true)
+        if(url == "form" && this.form.portfolioFormIsEmpty() == false){
+
+        }else{
+          this.navigateAfterOrNot(url,true)
+        }
       }
     } else if (event.deltaY < 0 ) {
       // Molette vers le haut
@@ -51,7 +59,11 @@ export class AppComponent {
       this.scroll+=event.deltaY
       if(url != this.pageTab[0]&& this.scroll<=nb_wheel_mouse*-100){
         this.scroll=0
-        this.navigateAfterOrNot(url,false)
+        if(url == "form" && this.form.portfolioFormIsEmpty() == false){
+
+        }else{
+          this.navigateAfterOrNot(url,false)
+        }
       }
     }
   }
@@ -106,7 +118,6 @@ export class AppComponent {
     }
   }
 
-  
 
 
 }

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormService } from '../form.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent {
+
+  constructor(public form:FormService,){}
+
+  
+
+
+
+
 
 }

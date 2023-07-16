@@ -1,1 +1,22 @@
-<p>form works!</p>
+
+<div class="flex flex-row center align-center" >
+    
+    
+    <form [formGroup]="this.form.formContact" class="form flex flex-col center align-center" style="text-align: center;padding: 40px;">
+        <h1>Contact</h1>
+        <mat-form-field appearance="outline">
+            <mat-label style="color: white;">Nom</mat-label>
+            <input matInput formControlName="nom">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label style="color: white;">Email</mat-label>
+            <input matInput formControlName="email">
+            </mat-form-field>
+            <mat-form-field style="width:100%">
+                <mat-label>Renseignez votre message ici</mat-label>
+                <textarea matInput  formControlName="message"></textarea>
+            </mat-form-field>
+            
+              <button mat-flat-button style="color: white;background-color: #00c483;">Envoyer</button>
+    </form>
+</div>

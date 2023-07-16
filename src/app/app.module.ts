@@ -15,6 +15,8 @@ import { ProjectComponent } from './project/project.component';
 import { InfoComponent } from './info/info.component';
 import { FormComponent } from './form/form.component';
 import { SelectedDirective } from './selected.directive';
+import {MatInputModule} from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -36,6 +38,8 @@ import { SelectedDirective } from './selected.directive';
     MatButtonModule,
     MatListModule,
     MatToolbarModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
